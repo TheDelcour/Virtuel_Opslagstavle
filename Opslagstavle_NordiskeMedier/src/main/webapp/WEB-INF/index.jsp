@@ -1,7 +1,3 @@
-<%@page import="java.sql.Connection" %>
-<%@page import="java.sql.DriverManager" %>
-<%@page import="db.DBConnection" %>
-<%@page import="db.DBPostsTable" %>
 <%@page import="classes.Post" %>
 <%@page import="java.util.LinkedList" %>
 
@@ -10,6 +6,7 @@
     
 <!DOCTYPE html>
 <html>
+ <link href="styling/style.css" rel="stylesheet" type="text/css" />
 <head>
 <meta charset="ISO-8859-1">
 <title>Digital Opslagstavle</title>
@@ -34,28 +31,21 @@
 		</table>
 		<input type="submit" />
 	</form>
-
+<div class="posts">
 <%
   LinkedList<Post> posts = (LinkedList<Post>) request.getAttribute("posts"); 
   for (Post post: posts) {   
 %>
+	<div class="post">
+	    <%if(post.isNew() == true){%>
+    <a>NYT OPSLAG!</a>
+    <%}%>
     <a><%=post.getTitle()%></a>
     <a><%=post.getAuthor()%></a>
     <a><%=post.getMessage()%></a>
+    <a><%=post.getCreated()%></a>
+    </div>
 <%}%>
-
-
- <%
-//DBPostsTable table = new DBPostsTable();
-//table.createPost("test1", "author1", "here is a new message11");
-//LinkedList<Post> posts = table.getPosts(255);
-//out.print(posts.getFirst().getTitle());
-
-//for(int i = 0; i < posts.size() ; i++){
-//	out.print(posts.get(i).getTitle() + "    ");
-//	out.print(posts.get(i).getAuthor() + "    ");
-//	out.print(posts.get(i).getMessage() + "    ");
-//}
- %>
+</div>
 </body>
 </html>

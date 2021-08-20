@@ -2,26 +2,24 @@ package classes;
 import java.time.LocalDateTime;
 
 public class Post {
-    private final String title;
-    private final int ID;
-    private final String author;
-    private final LocalDateTime created;
-    private final LocalDateTime lastSeen;
-    private final LocalDateTime currentTime;
-    private final String message;
-    private final boolean isNew;
+    private String title;
+    private int ID;
+    private String author;
+    private LocalDateTime created;
+    private boolean isNew;
+    private LocalDateTime lastSeen;
+    private String message;
 
 
-    public Post(int ID, String title, String name, String message, LocalDateTime created,
-                LocalDateTime lastSeen) {
+    public Post(int ID, String title, String name, String message, LocalDateTime created, LocalDateTime lastSeen, boolean isNew) {
     	this.ID = ID;
         this.title = title;
         this.author = name;
         this.message = message;
         this.created = created;
+        this.isNew = true;
         this.lastSeen = lastSeen;
-        this.currentTime = java.time.LocalDateTime.now();
-        this.isNew = currentTime.isAfter(lastSeen);
+        this.isNew = isNew;
     }
 
     public int getID() {
@@ -44,12 +42,20 @@ public class Post {
     public LocalDateTime getLastSeen() {
         return lastSeen;
     }
-
+    
+    public void setLastSeen(LocalDateTime value) {
+    	this.lastSeen = value;
+    }
+    
     public String getMessage() {
         return message;
     }
 
     public boolean isNew() {
         return isNew;
+    }
+    
+    public void setIsNew(boolean value) {
+    	this.isNew = value;
     }
 }
