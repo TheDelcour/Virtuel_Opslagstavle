@@ -1,6 +1,6 @@
 # Virtuel_Opslagstavle
 En virtuel opslagstavle skrevet i Java <br/>
-Fælles "opslagstavle" <br/>
+
 Kode opgave til jobinterview: <br/>
 Opgaven lyd på at programmere en form for webbaseret opslagstavle med frontend/client side og backend/server side. <br/>
 Tanken er, at systemet holder en samling af opslag, som alle der tilgår systemet kan se. Alle kan ligeledes tilføje nye opslag.  <br/>
